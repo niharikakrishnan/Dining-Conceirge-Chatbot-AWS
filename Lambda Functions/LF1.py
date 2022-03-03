@@ -55,17 +55,24 @@ def delegate(session_attributes, slots):
 #Function check invalid date
 def check_invalid_date(date):
     try:
-        parsed_date = dateutil.parser.parse(date).date()
-        return parsed_date < datetime.date.today()
+        input_date = dateutil.parser.parse(date).date()
+        if (input_date < datetime.date.today()):
+            return True
+        else:
+            return False
     except ValueError:
         return False
 
 #Function check invalid time
 def check_invalid_time(time, date):
     try:
-        parsed_time = dateutil.parser.parse(time).timestamp()
-        parsed_date = dateutil.parser.parse(date).date()
-        return parsed_date == datetime.date.today() and parsed_time < datetime.datetime.now().timestamp()
+        input_time = dateutil.parser.parse(time).timestamp()
+        input_date = dateutil.parser.parse(date).date()
+        if ((input_date == datetime.date.today()) and (input_time < datetime.datetime.now().timestamp())):
+            return True
+        else:
+            return False
+            
     except ValueError:
         return False;
  
@@ -184,7 +191,7 @@ def get_dining_suggestions_intent(intent_request):
             }
         },
         MessageBody=(
-            'Input from the user through Chatbot'
+            'Input from the user through Dining Conceirge Chatbot'
         )
     )
 
