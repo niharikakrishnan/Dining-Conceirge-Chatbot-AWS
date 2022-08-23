@@ -182,23 +182,17 @@ def send_to_es(restaurant_list,es_host,es_port,es_http_auth):
     
 
 if __name__=='__main__':
-    api_key = 'GbdrDzeDKXAfmWUel3IvkNdkqGFI_dL38rykNnRLf-7Ss31lk2GZDxHC3RhOLZ6P_4upEA2VsxtbNWul582oBKFnoBGmnnJ2y36UYFeMpdZsN_FwUyKrzqXJjmURYnYx'
+    api_key = ''
     api='https://api.yelp.com/v3/businesses/search'
     restaurant_list=get_yelp_data(api,api_key)
     restaurant_len=len(restaurant_list)
-    print("Total Number of restaurants scraped from yelp:",restaurant_len)
     if restaurant_len>=5000:
-        print("Sending the restaurants to dynamoDB now!!")
-        aws_access_key_id='AKIASDJIGKBWQXBD32VN'
-        aws_secret_access_key='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'
+        aws_access_key_id=''
+        aws_secret_access_key=''
         region_name='us-west-2'
         send_to_dynamodb(aws_access_key_id,aws_secret_access_key,region_name,restaurant_list)
-        print("Restaurant data has been sent to DynamoDB !!!")
-        print("Sending the restaurants to Elastic Search now!!")
         es_host='search-yelp-pfcdlcbx2hj4p5mpq6hi2n4fou.us-west-2.es.amazonaws.com'
         es_port=443
-        es_http_auth = ('master_user','Suits1998*')
-        send_to_es(restaurant_list,es_host,es_port,es_http_auth)
-        print("Restaurant data has been sent to Elastic Search !!!")
-    
+        es_http_auth = (<user_name>,<password>)
+        send_to_es(restaurant_list,es_host,es_port,es_http_auth)    
 
