@@ -9,10 +9,10 @@ ssl = True
 certs = True
 service = "es"
 region = 'us-west-2'
-username = "master_user"
-password = "Suits1998*"
+username = " "
+password = " "
 dynamodbTable = 'yelp-restaurants'
-email_id = "niharikakrishnan@gmail.com"
+email_id = "abc@gmail.com"
 host = "search-yelp-pfcdlcbx2hj4p5mpq6hi2n4fou.us-west-2.es.amazonaws.com" 
 sns_queue = "https://sqs.us-west-2.amazonaws.com/144502575213/diningsqs"
 
